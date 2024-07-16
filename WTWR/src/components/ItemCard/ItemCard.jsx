@@ -1,6 +1,12 @@
 import './ItemCard.css'
 
-function ItemCard() {}
+function ItemCard() {
+    return (
+        <div className='card'>
+        This is the Item Card
+    </div>
+    ) 
+}
 
 export default ItemCard
 

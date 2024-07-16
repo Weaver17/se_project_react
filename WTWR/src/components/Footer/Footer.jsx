@@ -1,5 +1,11 @@
 import './Footer.css'
 
-function Footer() {}
+function Footer() {
+    return (
+        <div className='footer'>
+        This is the footer
+    </div>
+    )
+}
 
 export default Footer
