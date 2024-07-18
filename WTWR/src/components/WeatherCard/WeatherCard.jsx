@@ -1,10 +1,12 @@
 import './WeatherCard.css'
+import sunny from '../../assets/SunnyReal.svg'
 
 function WeatherCard() {
     return (
-        <div className='card'>
-        This is the Weather Card
-    </div>
+        <section className='weather-card'>
+        <p className="weather-card__temp-text">75° F</p>
+        <img className='weather-card__image' src={sunny} alt="Sunny" />
+    </section>
     )
 }
 
