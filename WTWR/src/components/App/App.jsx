@@ -8,7 +8,7 @@ import ModalWithForm from '../ModalWithForm/ModalWithForm'
 import Footer from '../Footer/Footer'
 
 function App() {
-  const {weatherData, setWeatherData} = useState({ type: "hot" })
+  const [weatherData, setWeatherData] = useState({ type: "hot" })
 
   return (
     <div className='page'>

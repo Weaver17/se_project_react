@@ -1,7 +1,9 @@
 .item-card {
     position: relative;
-    max-width: 325px;
-    max-height: 328px;
+    display: flex;
+    justify-content: center;
+    max-width: 323px;
+    max-height: 326px;
     overflow: hidden;
     border: solid 1px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
@@ -14,9 +16,7 @@
     color: rgba(0, 0, 0, .60);
     background-color: #fff;
     padding: 2px 12px;
-    top: 25px;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 15px;
     font-size: 16px;
     line-height: 20px;
     border-radius: 4px;
@@ -26,6 +26,5 @@
 .item-card__image {
     margin: 0;
     padding: 0;
-    height: 100%;
     object-fit: contain;
 }

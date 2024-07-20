@@ -3,8 +3,9 @@ import './Footer.css'
 function Footer() {
     return (
         <div className='footer'>
-        This is the footer
-    </div>
+            <p className='footer__author'>Developed by Andrew Weaver</p>
+            <p className='footer__year'>2024</p>
+        </div>
     )
 }
 
