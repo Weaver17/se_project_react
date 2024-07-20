@@ -1,12 +1,12 @@
 .main {
     margin: 0;
+    padding: 0;
 }
 
 .main__items-list {
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(auto-fit, 323px);
-    max-height: 326px;
     list-style-type: none;
     margin: 0;
     padding: 0;
