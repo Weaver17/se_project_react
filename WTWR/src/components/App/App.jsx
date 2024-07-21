@@ -10,29 +10,34 @@ import Footer from '../Footer/Footer'
 function App() {
   const [weatherData, setWeatherData] = useState({ type: "hot" })
   const [activeModal, setActiveModal] = useState("")
+  const [selectedCard, setSelectedCard] = useState({})
+
+  const handleCardClick = (card) => {
+    setActiveModal("preview");
+    setSelectedCard(card);
+  }
 
   const handleAddClothesClick = () => {
-    setActiveModal('add-garment');
+    setActiveModal("add-garment");
   }
 
   const closeActiveModal = () => {
-    setActiveModal('')
+    setActiveModal('');
   }
 
   return (
     <div className='page'>
-      <div className='page__content'>
-      <Header handleAddClothesClick={handleAddClothesClick} />
-      <Main weatherData={weatherData} />
-      <Footer />
-    </div>
-    <ItemModal />
-    <ModalWithForm 
-      title='New garment' 
-      buttonText='Add garment' 
-      activeModal={activeModal}
-      handleCloseClick={closeActiveModal}
-    >      
+        <div className='page__content'>
+          <Header handleAddClothesClick={handleAddClothesClick} />
+          <Main weatherData={weatherData} handleCardClick={handleCardClick} />
+          <Footer />
+        </div>
+      <ModalWithForm 
+        title='New garment' 
+        buttonText='Add garment' 
+        activeModal={activeModal}
+        handleCloseClick={closeActiveModal}
+      >      
         <label htmlFor="name" className='modal__label'>
           Name{" "}
           <input type="text" className='modal__input' id='name' placeholder='Name'/>    
@@ -55,10 +60,13 @@ function App() {
          <input type="radio" className='modal__radio-input' id='cold' /> Cold
         </label>
        </fieldset>
-    </ModalWithForm>
-
+      </ModalWithForm>
+      <ItemModal 
+        activeModal={activeModal} 
+        card={selectedCard} 
+        handleCloseClick={closeActiveModal}
+      />
     </div>
-
   )
 }
 
