@@ -2,12 +2,12 @@ export const weatherCondition = [
     // DAYTIME WEATHER CARDS //
     {
         day: true,
-        condition: "sunny",
+        condition: "clear",
         image: new URL('../assets/day/sunny.svg', import.meta.url).href,
     },
     {
         day: true,
-        condition: "cloudy",
+        condition: "clouds",
         image: new URL('../assets/day/cloudy.svg', import.meta.url).href,
     },
     {
@@ -17,7 +17,7 @@ export const weatherCondition = [
     },
     {
         day: true,
-        condition: "storm",
+        condition: "thunderstorm",
         image: new URL('../assets/day/storm.svg', import.meta.url).href,
     },
     {
@@ -33,12 +33,12 @@ export const weatherCondition = [
     // NIGHTTIME WEATHER CARDS //
     {
         day: false,
-        condition: "sunny",
+        condition: "clear",
         image: new URL('../assets/night/sunny-night.svg', import.meta.url).href,
     },
     {
         day: false,
-        condition: "cloudy",
+        condition: "clouds",
         image: new URL('../assets/night/cloudy-night.svg', import.meta.url).href,
     },
     {
@@ -48,7 +48,7 @@ export const weatherCondition = [
     },
     {
         day: false,
-        condition: "storm",
+        condition: "thunderstorm",
         image: new URL('../assets/night/storm-night.svg', import.meta.url).href,
     },
     {
@@ -62,6 +62,15 @@ export const weatherCondition = [
         image: new URL('../assets/night/fog-night.svg', import.meta.url).href,
     },
 ]
+
+export const defaultCondition = {
+    day: {
+        image: new URL('../assets/day/default-day.svg', import.meta.url).href,
+    },
+    night: {
+        image: new URL('../assets/night/default-night.svg', import.meta.url).href,
+    }
+}
 
 export const defaultClothingItems = [
     {
