@@ -1,4 +1,69 @@
- export const defaultClothingItems = [
+export const weatherCondition = [
+    // DAYTIME WEATHER CARDS //
+    {
+        day: true,
+        condition: "sunny",
+        image: new URL('../assets/day/sunny.svg', import.meta.url).href,
+    },
+    {
+        day: true,
+        condition: "cloudy",
+        image: new URL('../assets/day/cloudy.svg', import.meta.url).href,
+    },
+    {
+        day: true,
+        condition: "rain",
+        image: new URL('../assets/day/rain.svg', import.meta.url).href,
+    },
+    {
+        day: true,
+        condition: "storm",
+        image: new URL('../assets/day/storm.svg', import.meta.url).href,
+    },
+    {
+        day: true,
+        condition: "snow",
+        image: new URL('../assets/day/snow.svg', import.meta.url).href,
+    },
+    {
+        day: true,
+        condition: "fog",
+        image: new URL('../assets/day/fog.svg', import.meta.url).href,
+    },
+    // NIGHTTIME WEATHER CARDS //
+    {
+        day: false,
+        condition: "sunny",
+        image: new URL('../assets/night/sunny-night.svg', import.meta.url).href,
+    },
+    {
+        day: false,
+        condition: "cloudy",
+        image: new URL('../assets/night/cloudy-night.svg', import.meta.url).href,
+    },
+    {
+        day: false,
+        condition: "rain",
+        image: new URL('../assets/night/rain-night.svg', import.meta.url).href,
+    },
+    {
+        day: false,
+        condition: "storm",
+        image: new URL('../assets/night/storm-night.svg', import.meta.url).href,
+    },
+    {
+        day: false,
+        condition: "snow",
+        image: new URL('../assets/night/snow-night.svg', import.meta.url).href,
+    },
+    {
+        day: false,
+        condition: "fog",
+        image: new URL('../assets/night/fog-night.svg', import.meta.url).href,
+    },
+]
+
+export const defaultClothingItems = [
     {
       _id: 0,
       name: "Cap",
@@ -36,3 +101,10 @@
       link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Coat.png?etag=298717ed89d5e40b1954a1831ae0bdd4",
     }
   ]
+
+export const coordinates = {
+    latitude: 39.961178,
+    longitude: -82.998795,
+}
+
+export const APIkey = 'a98ca634fba75265fa51bba13409546d'
