@@ -5,13 +5,19 @@
     bottom: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s linear 0.3s, opacity 0.3s linear;
     font-weight: 700;
+}
+
+.modal__background {
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal__content {

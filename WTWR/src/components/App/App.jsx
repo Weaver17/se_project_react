@@ -31,6 +31,15 @@ function App() {
     setActiveModal('');
   }
 
+  const handleEscapeClose = (e) => {
+    if (e.key === 'Escape') {
+          closeActiveModal();
+    }
+  };
+
+  
+  
+
   useEffect(() => {
     getWeather(coordinates, APIkey)
     .then((data) => {
@@ -48,10 +57,12 @@ function App() {
           <Footer />
         </div>
       <ModalWithForm 
-        title='New garment' 
+        title='New garment'
+        name='add_garment'
         buttonText='Add garment' 
         activeModal={activeModal}
         handleCloseClick={closeActiveModal}
+        handleEscapeClose={handleEscapeClose}
       >      
         <label htmlFor="name" className='modal__label'>
           Name{" "}
@@ -77,9 +88,11 @@ function App() {
        </fieldset>
       </ModalWithForm>
       <ItemModal 
+        name='image'
         activeModal={activeModal} 
         card={selectedCard} 
         handleCloseClick={closeActiveModal}
+        handleEscapeClose={handleEscapeClose}
       />
     </div>
   )
