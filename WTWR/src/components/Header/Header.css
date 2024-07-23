@@ -10,12 +10,19 @@
 
 .header__date-location {
     margin: 0;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
 }
 
 .header__clothes-btn {
     margin: 8px 20px 8px auto;
     background: none;
     border: none;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
 }
 
 .header__user-container {
@@ -26,4 +33,7 @@
 
 .header__username {
     margin: 0;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
 }

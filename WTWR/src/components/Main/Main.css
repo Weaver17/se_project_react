@@ -3,6 +3,14 @@
     padding: 0;
 }
 
+.main__temp-text {
+    margin: 40px 0 34px;
+    padding: 0;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+}
+
 .main__items-list {
     display: grid;
     gap: 20px;
