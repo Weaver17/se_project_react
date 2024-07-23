@@ -34,7 +34,7 @@
     width: 20px;
     border: none;
     background-size: contain;
-    background: transparent url(../../assets/CloseBtn.svg) no-repeat;
+    background: transparent url(../../assets/add-close-btn.png) no-repeat;
 }
 
 .modal__title {
@@ -95,4 +95,19 @@
 .modal__label_type_radio {
     margin: 0 0 8px;
     padding: 0;
+}
+
+.modal__content_type_image {
+    margin: 0;
+    padding: 0;
+    max-width: 498px;
+    min-height: 610px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.modal__close-btn_type_image {
+    background: transparent url(../../assets/image-close-btn.svg) no-repeat;
+
 }

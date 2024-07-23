@@ -1,0 +1,28 @@
+.modal__image {
+    margin: 0;
+    padding: 0;
+    height: 498px;
+    width: 498px;
+    border-radius: 16px 16px 0 0;
+    object-fit: cover;
+}
+
+.modal__card-info {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 32px 32px;
+    gap: 12px;
+}
+
+.modal__card-title {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    line-height: 24px;
+}
+.modal__card-weather {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    line-height: 24px;
+}
