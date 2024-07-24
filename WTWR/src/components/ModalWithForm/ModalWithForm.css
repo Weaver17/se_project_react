@@ -112,7 +112,7 @@
     margin: 0;
     padding: 0;
     max-width: 498px;
-    min-height: 610px;
+    max-height: 610px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -139,3 +139,38 @@
     transition: 0.3s linear;
 }
 
+@media screen and (max-width: 515px) {
+    .modal__content_type_add_garment {
+        position: absolute;
+        bottom: 0;
+        max-width: 100%;
+        border-radius: 12px 12px 0 0;
+        border: none;
+    }
+
+    .modal__submit-btn {
+        width: 100%;
+    }
+
+    .modal__content_type_image {
+        max-width: 343px;
+        max-height: 463px;
+    }
+
+    .modal__close-btn {
+        padding: 0;
+
+        height: 22px;
+        width: 22px;
+        background: transparent url(../../assets/mobile-close-btn.svg) center no-repeat;
+    }
+
+    .modal__close-btn_type_image {
+        padding: 0;
+        top: 12px;
+        right: 13px;
+        height: 22px;
+        width: 22px;    
+        background: transparent url(../../assets/mobile-close-btn.svg) center no-repeat;
+    }
+}

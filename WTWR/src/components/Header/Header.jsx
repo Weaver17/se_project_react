@@ -11,6 +11,11 @@ function Header({ handleAddClothesClick, weatherData }) {
         setMobileMenuOpened(!isMobileMenuOpened)
     }
 
+    const handleAddClothesMobile = () => {
+        handleAddClothesClick();
+        setMobileMenuOpened(false);
+    }
+
     return (
         <header className='header'>
         <img className='header__logo' src={ logo } alt="WTWR Logo" />
@@ -22,18 +27,20 @@ function Header({ handleAddClothesClick, weatherData }) {
                         <p className='header__username'>Username</p>
                         <img className='header__user-avater' src={ avatar } alt="User Avatar" />
                     </div>
-                <button className='header__mobile-btn' type='button' onClick={toggleMobileMenu}></button>
                 </div>
+
             </div>
+            <button className='header__mobile-btn' type='button' onClick={toggleMobileMenu}></button>
+
             {isMobileMenuOpened && (
                 <div className='header__mobile'>
-                    <p className='header__date-location'>{currentDate}, {weatherData.city}</p>
-                    <button className='header__clothes-btn' type='button' onClick={handleAddClothesClick}>+ Add clothes</button>
                     <div className='header__user-container'>
                         <p className='header__username'>Username</p>
                         <img className='header__user-avatar' src={avatar} alt="User Avatar" />
                     </div>
-                </div>
+                    <button className='header__clothes-btn' type='button' onClick={handleAddClothesMobile}>+ Add clothes</button>
+                    <button className='header__mobile-close-btn' type='button' onClick={toggleMobileMenu}></button>
+                </div>                
             )}
         </header>
     )

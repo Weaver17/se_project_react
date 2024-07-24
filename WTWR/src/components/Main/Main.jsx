@@ -7,7 +7,7 @@ function Main({ weatherData, handleCardClick }) {
     return (
         <main className='main'>
             <WeatherCard weatherData={weatherData} />
-            <section>
+            <section className='main__gallery'>
             <h1 className="main__temp-text">Today is {weatherData.temp.F}° F / You may want to wear:</h1>
             <ul className='main__items-list'>
                     {defaultClothingItems
@@ -26,6 +26,7 @@ function Main({ weatherData, handleCardClick }) {
                        
                 </ul>
             </section>
+            <button className='main__random-btn' type='button' >↻ Randomize</button>
         </main>
     ) 
 }
