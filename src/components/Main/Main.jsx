@@ -1,36 +1,37 @@
-import './Main.css'
-import WeatherCard from '../WeatherCard/WeatherCard'
-import ItemCard from '../ItemCard/ItemCard'
-import { defaultClothingItems } from '../../utils/constants'
+import "./Main.css";
+import WeatherCard from "../WeatherCard/WeatherCard";
+import ItemCard from "../ItemCard/ItemCard";
+import { defaultClothingItems } from "../../utils/constants";
 
 function Main({ weatherData, handleCardClick }) {
-    return (
-        <main className='main'>
-            <WeatherCard weatherData={weatherData} />
-            <section className='main__gallery'>
-            <h1 className="main__temp-text">Today is {weatherData.temp.F}° F / You may want to wear:</h1>
-            <ul className='main__items-list'>
-                    {defaultClothingItems
-                    .filter((item) => {
-                        return item.weather === weatherData.type;
-                    })
-                    .map((item) => {
-                        return (
-                            <ItemCard
-                            key={item._id} 
-                            item={item}
-                            onCardClick={handleCardClick}
-                            />
-                        )
-                    })}
-                       
-                </ul>
-            </section>
-            <button className='main__random-btn' type='button' >↻ Randomize</button>
-        </main>
-    ) 
+  return (
+    <main className="main">
+      <WeatherCard weatherData={weatherData} />
+      <section className="main__gallery">
+        <h1 className="main__temp-text">
+          Today is {weatherData.temp.F}° F / You may want to wear:
+        </h1>
+        <ul className="main__items-list">
+          {defaultClothingItems
+            .filter((item) => {
+              return item.weather === weatherData.type;
+            })
+            .map((item) => {
+              return (
+                <ItemCard
+                  key={item._id}
+                  item={item}
+                  onCardClick={handleCardClick}
+                />
+              );
+            })}
+        </ul>
+      </section>
+      <button className="main__random-btn" type="button">
+        ↻ Randomize
+      </button>
+    </main>
+  );
 }
 
-export default Main
-
-
+export default Main;
