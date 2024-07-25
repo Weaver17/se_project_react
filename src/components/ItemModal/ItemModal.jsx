@@ -13,7 +13,7 @@ function ItemModal({
   };
 
   useEffect(() => {
-    if (activeModal === "preview") {
+    if (activeModal === `${name}`) {
       document.addEventListener("keydown", handleEscapeClose);
     }
 
@@ -30,7 +30,7 @@ function ItemModal({
           onClick={handleContentClick}
         >
           <button
-            className="modal__close-btn modal__close-btn_type_image"
+            className="modal__close-btn modal__close-btn_type_preview"
             type="button"
             onClick={handleCloseClick}
           ></button>

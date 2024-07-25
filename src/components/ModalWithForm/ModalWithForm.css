@@ -108,7 +108,7 @@
     font-weight: 700;
 }
 
-.modal__content_type_image {
+.modal__content_type_preview {
     margin: 0;
     padding: 0;
     max-width: 498px;
@@ -123,7 +123,7 @@
     cursor: default;
 }
 
-.modal__close-btn_type_image {
+.modal__close-btn_type_preview {
     background: transparent url(../../assets/image-close-btn.svg) no-repeat;
 
 }
@@ -152,7 +152,7 @@
         width: 100%;
     }
 
-    .modal__content_type_image {
+    .modal__content_type_preview {
         max-width: 343px;
         max-height: 463px;
     }
@@ -165,7 +165,7 @@
         background: transparent url(../../assets/mobile-close-btn.svg) center no-repeat;
     }
 
-    .modal__close-btn_type_image {
+    .modal__close-btn_type_preview {
         padding: 0;
         top: 12px;
         right: 13px;

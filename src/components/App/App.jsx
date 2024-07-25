@@ -24,7 +24,7 @@ function App() {
   };
 
   const handleAddClothesClick = () => {
-    setActiveModal("add-garment");
+    setActiveModal("add_garment");
   };
 
   const closeActiveModal = () => {
@@ -102,7 +102,7 @@ function App() {
         </fieldset>
       </ModalWithForm>
       <ItemModal
-        name="image"
+        name="preview"
         activeModal={activeModal}
         card={selectedCard}
         handleCloseClick={closeActiveModal}

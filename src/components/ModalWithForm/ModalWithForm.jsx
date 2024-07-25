@@ -15,7 +15,7 @@ function ModalWithForm({
   };
 
   useEffect(() => {
-    if (activeModal === "add-garment") {
+    if (activeModal === `${name}`) {
       document.addEventListener("keydown", handleEscapeClose);
     }
 
@@ -25,7 +25,7 @@ function ModalWithForm({
   }, [activeModal]);
 
   return (
-    <div className={`modal ${activeModal === "add-garment" && "modal_opened"}`}>
+    <div className={`modal ${activeModal === "add_garment" && "modal_opened"}`}>
       <div className="modal__background" onClick={handleCloseClick}>
         <div
           className={`modal__content modal__content_type_${name}`}
@@ -37,7 +37,7 @@ function ModalWithForm({
             onClick={handleCloseClick}
           ></button>
           <h2 className="modal__title">{title}</h2>
-          <form className="modal__form" name="add-garment-form">
+          <form className="modal__form" name={name}>
             {children}
             <button className="modal__submit-btn" type="submit">
               {buttonText}
