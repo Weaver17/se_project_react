@@ -6,7 +6,6 @@ function ModalWithForm({
   buttonText,
   title,
   name,
-  activeModal,
   handleCloseClick,
   handleEscapeClose,
   isOpen,
@@ -23,7 +22,7 @@ function ModalWithForm({
     return () => {
       document.removeEventListener("keydown", handleEscapeClose);
     };
-  }, [activeModal]);
+  }, [isOpen, handleEscapeClose]);
 
   return (
     <div className={`modal ${isOpen && "modal_opened"}`}>

@@ -20,7 +20,7 @@ function ItemModal({
     return () => {
       document.removeEventListener("keydown", handleEscapeClose);
     };
-  }, [activeModal]);
+  }, [isOpen, handleEscapeClose]);
 
   return (
     <div className={`modal ${isOpen && "modal_opened"}`}>
