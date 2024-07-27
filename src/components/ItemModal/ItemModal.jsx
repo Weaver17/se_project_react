@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import "./ItemModal.css";
 
 function ItemModal({
-  activeModal,
   handleCloseClick,
   card,
   handleEscapeClose,
@@ -24,7 +23,7 @@ function ItemModal({
   }, [activeModal]);
 
   return (
-    <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
+    <div className={`modal ${isOpen && "modal_opened"}`}>
       <div className="modal__background" onClick={handleCloseClick}>
         <div
           className={`modal__content modal__content_type_${name}`}

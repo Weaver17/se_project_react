@@ -26,7 +26,7 @@ function ModalWithForm({
   }, [activeModal]);
 
   return (
-    <div className={`modal ${activeModal === "add_garment" && "modal_opened"}`}>
+    <div className={`modal ${isOpen && "modal_opened"}`}>
       <div className="modal__background" onClick={handleCloseClick}>
         <div
           className={`modal__content modal__content_type_${name}`}
