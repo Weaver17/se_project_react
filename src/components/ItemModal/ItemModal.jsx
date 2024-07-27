@@ -7,13 +7,14 @@ function ItemModal({
   card,
   handleEscapeClose,
   name,
+  isOpen,
 }) {
   const handleContentClick = (e) => {
     e.stopPropagation();
   };
 
   useEffect(() => {
-    if (activeModal === `${name}`) {
+    if (isOpen) {
       document.addEventListener("keydown", handleEscapeClose);
     }
 

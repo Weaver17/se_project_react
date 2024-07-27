@@ -63,6 +63,7 @@ function App() {
         activeModal={activeModal}
         handleCloseClick={closeActiveModal}
         handleEscapeClose={handleEscapeClose}
+        isOpen={activeModal === "add_garment"}
       >
         <label htmlFor="name" className="modal__label">
           Name{" "}
@@ -85,19 +86,40 @@ function App() {
         <fieldset className="modal__radio-btns">
           <legend className="modal__legend">Select the weather type:</legend>
           <label htmlFor="hot" className="modal__label modal__label_type_radio">
-            <input type="radio" className="modal__radio-input" id="hot" /> Hot
+            <input
+              type="radio"
+              className="modal__radio-input"
+              id="hot"
+              name="radio-input"
+            />
+            <div className="modal__radio-styled"></div>
+            <p className="modal__radio-text">Hot</p>
           </label>
           <label
             htmlFor="warm"
             className="modal__label modal__label_type_radio"
           >
-            <input type="radio" className="modal__radio-input" id="warm" /> Warm
+            <input
+              type="radio"
+              className="modal__radio-input"
+              id="warm"
+              name="radio-input"
+            />
+            <div className="modal__radio-styled"></div>
+            <p className="modal__radio-text">Warm</p>
           </label>
           <label
             htmlFor="cold"
             className="modal__label modal__label_type_radio"
           >
-            <input type="radio" className="modal__radio-input" id="cold" /> Cold
+            <input
+              type="radio"
+              className="modal__radio-input"
+              id="cold"
+              name="radio-input"
+            />
+            <div className="modal__radio-styled"></div>
+            <p className="modal__radio-text">Cold</p>
           </label>
         </fieldset>
       </ModalWithForm>
@@ -107,6 +129,7 @@ function App() {
         card={selectedCard}
         handleCloseClick={closeActiveModal}
         handleEscapeClose={handleEscapeClose}
+        isOpen={activeModal === "preview"}
       />
     </div>
   );

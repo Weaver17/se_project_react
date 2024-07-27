@@ -9,13 +9,14 @@ function ModalWithForm({
   activeModal,
   handleCloseClick,
   handleEscapeClose,
+  isOpen,
 }) {
   const handleContentClick = (e) => {
     e.stopPropagation();
   };
 
   useEffect(() => {
-    if (activeModal === `${name}`) {
+    if (isOpen) {
       document.addEventListener("keydown", handleEscapeClose);
     }
 
