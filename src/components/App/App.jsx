@@ -60,7 +60,6 @@ function App() {
         title="New garment"
         name="add_garment"
         buttonText="Add garment"
-        activeModal={activeModal}
         handleCloseClick={closeActiveModal}
         handleEscapeClose={handleEscapeClose}
         isOpen={activeModal === "add_garment"}
@@ -125,7 +124,6 @@ function App() {
       </ModalWithForm>
       <ItemModal
         name="preview"
-        activeModal={activeModal}
         card={selectedCard}
         handleCloseClick={closeActiveModal}
         handleEscapeClose={handleEscapeClose}
