@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import "./App.css";
+import CurrentTempUnitContext from "../../contexts/CurrentTempUnitContext";
 import { coordinates, APIkey } from "../../utils/constants";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -17,6 +18,8 @@ function App() {
   });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+  const [temp, setTemp] = useState(0);
+  const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -29,6 +32,10 @@ function App() {
 
   const closeActiveModal = () => {
     setActiveModal("");
+  };
+
+  const handleTempSwitch = () => {
+    currentTempUnit === "F" ? setCurrentTempUnit("C") : setCurrentTempUnit("F");
   };
 
   const handleEscapeClose = (e) => {
@@ -48,6 +55,9 @@ function App() {
 
   return (
     <div className="page">
+      {/* <CurrentTempUnitContext.Provider
+        value={{ currentTempUnit, handleTempSwitch }}
+      > */}
       <div className="page__content">
         <Header
           handleAddClothesClick={handleAddClothesClick}
@@ -56,6 +66,7 @@ function App() {
         <Main weatherData={weatherData} handleCardClick={handleCardClick} />
         <Footer />
       </div>
+      {/* </CurrentTempUnitContext.Provider> */}
       <ModalWithForm
         title="New garment"
         name="add_garment"

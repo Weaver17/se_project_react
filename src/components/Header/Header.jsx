@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Header.css";
 import logo from "../../assets/WTWRLogo.svg";
 import avatar from "../../assets/avatar.svg";
+import ToggleSwitch from "../ToggleTempSwitch/ToggleSwitch";
 
 function Header({ handleAddClothesClick, weatherData }) {
   const currentDate = new Date().toLocaleString("default", {
@@ -27,6 +28,7 @@ function Header({ handleAddClothesClick, weatherData }) {
           {currentDate}, {weatherData.city}
         </p>
         <div className="header__right-wrapper">
+          <ToggleSwitch />
           <button
             className="header__clothes-btn"
             type="button"

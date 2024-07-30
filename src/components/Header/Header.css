@@ -23,13 +23,13 @@
 
 .header__right-wrapper {
     margin-left: auto;
-
     display: flex;
     align-items: center;
 }
 
 .header__clothes-btn {
-    margin: 8px 20px 8px auto   ;
+    margin: 8px 20px 8px 0;
+    padding: 0;
     background: none;
     border: none;
     cursor: pointer;
