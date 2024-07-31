@@ -18,8 +18,7 @@ function App() {
   });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
-  const [temp, setTemp] = useState(0);
-  const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  const [currentTempUnit, setCurrentTempUnit] = useState("F");
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -34,7 +33,7 @@ function App() {
     setActiveModal("");
   };
 
-  const handleTempSwitch = () => {
+  const handleToggleSwitchChange = () => {
     currentTempUnit === "F" ? setCurrentTempUnit("C") : setCurrentTempUnit("F");
   };
 
@@ -47,7 +46,7 @@ function App() {
   useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
-        const filteredData = filterWeatherData(data);
+        const filteredData = filterWeatherData(data, currentTempUnit);
         setWeatherData(filteredData);
       })
       .catch(console.error);
@@ -55,18 +54,18 @@ function App() {
 
   return (
     <div className="page">
-      {/* <CurrentTempUnitContext.Provider
-        value={{ currentTempUnit, handleTempSwitch }}
-      > */}
-      <div className="page__content">
-        <Header
-          handleAddClothesClick={handleAddClothesClick}
-          weatherData={weatherData}
-        />
-        <Main weatherData={weatherData} handleCardClick={handleCardClick} />
-        <Footer />
-      </div>
-      {/* </CurrentTempUnitContext.Provider> */}
+      <CurrentTempUnitContext.Provider
+        value={{ currentTempUnit, handleToggleSwitchChange }}
+      >
+        <div className="page__content">
+          <Header
+            handleAddClothesClick={handleAddClothesClick}
+            weatherData={weatherData}
+          />
+          <Main weatherData={weatherData} handleCardClick={handleCardClick} />
+          <Footer />
+        </div>
+      </CurrentTempUnitContext.Provider>
       <ModalWithForm
         title="New garment"
         name="add_garment"
