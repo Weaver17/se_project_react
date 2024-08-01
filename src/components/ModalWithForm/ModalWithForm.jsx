@@ -9,6 +9,7 @@ function ModalWithForm({
   handleCloseClick,
   handleEscapeClose,
   isOpen,
+  onSubmit,
 }) {
   const handleContentClick = (e) => {
     e.stopPropagation();
@@ -37,7 +38,12 @@ function ModalWithForm({
             onClick={handleCloseClick}
           ></button>
           <h2 className="modal__title">{title}</h2>
-          <form className="modal__form" name={name}>
+          <form
+            noValidate
+            className="modal__form"
+            name={name}
+            onSubmit={onSubmit}
+          >
             {children}
             <button className="modal__submit-btn" type="submit">
               {buttonText}
