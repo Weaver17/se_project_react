@@ -6,6 +6,7 @@ import CurrentTempUnitContext from "../../contexts/CurrentTempUnitContext";
 import { coordinates, APIkey } from "../../utils/constants";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
+import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
@@ -78,6 +79,7 @@ function App() {
                 />
               }
             />
+            <Route path="profile" element={<Profile />} />
           </Routes>
           <Footer />
         </div>

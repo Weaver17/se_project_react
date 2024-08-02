@@ -13,7 +13,7 @@
     border-radius: 20px;
     width: 56px;
     height: 28px;
-    border: solid 2px #000;
+    border: solid 2px rgba(0, 0, 0, 0.5);
     appearance: none;
     cursor: pointer;
 
@@ -31,15 +31,14 @@
     pointer-events: none;
 }
 
-
 .toggle-switch__slider_F {
     top: 0;
-    right: 0;
+    left: 0;
 }
 
 .toggle-switch__slider_C {
     top: 0;
-    left: 0;
+    right: 0;
 }
 
 .toggle-switch__temp_F {
@@ -48,8 +47,8 @@
     line-height: 17px;
     position: absolute;
     top: -7px;
-    right: 10px;
-    color: #000;
+    left: 10px;
+    color: rgba(0, 0, 0, 0.5);
     pointer-events: none;
 }
 
@@ -58,12 +57,13 @@
     font-size: 14px;
     line-height: 17px;
     position: absolute;
-    top: -7px;
-    left: 9px;
-    color: #000;
+    top: -7px;  
+    right: 9px;
+    color: rgba(0, 0, 0, 0.5);
     pointer-events: none;
 }
 
 .toggle-switch__temp_active {
     color: #fff;
 }
+
