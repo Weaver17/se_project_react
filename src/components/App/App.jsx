@@ -7,6 +7,7 @@ import CurrentTempUnitContext from "../../contexts/CurrentTempUnitContext";
 import { coordinates, APIkey } from "../../utils/constants";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
+import ItemCard from "../ItemCard/ItemCard";
 import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
@@ -25,10 +26,12 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTempUnit, setCurrentTempUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
+  const [itemToDelete, setItemToDelete] = useState({});
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
+    setItemToDelete(card);
   };
 
   const handleAddClothesClick = () => {
@@ -50,7 +53,6 @@ function App() {
   };
 
   const handleAddItemSubmit = (values) => {
-    console.log(values);
     addItem(values)
       .then((data) => {
         const { _id, name, imageUrl, weather } = data;
@@ -63,19 +65,19 @@ function App() {
       });
   };
 
-  const handleDeleteItem = () => {
+  const handleDeleteItem = (card) => {
+    setItemToDelete(card);
     setActiveModal("delete");
   };
 
   const handleDeleteConfirm = () => {
-    console.log(selectedCard);
-    removeItem(selectedCard._id)
-      .then(
-        getItems().then((data) => {
-          setClothingItems(data);
-        })
-      )
+    const updatedItems = clothingItems.filter(
+      (item) => item._id !== itemToDelete._id
+    );
+    removeItem(itemToDelete._id)
+      .then(setClothingItems(updatedItems))
       .then(setActiveModal(""))
+      .then(setItemToDelete({}))
       .catch((err) => {
         console.error(`Failed to delete item: ${err}`);
       });
@@ -123,6 +125,8 @@ function App() {
                 <Profile
                   handleCardClick={handleCardClick}
                   clothingItems={clothingItems}
+                  handleAddClothesClick={handleAddClothesClick}
+                  itemToDelete={itemToDelete}
                 />
               }
             />
@@ -141,7 +145,7 @@ function App() {
         card={selectedCard}
         handleCloseClick={closeActiveModal}
         handleEscapeClose={handleEscapeClose}
-        onDeleteItemClick={handleDeleteItem}
+        onDeleteItemClick={() => handleDeleteItem(selectedCard)}
         isOpen={activeModal === "preview"}
       />
       <DeleteModal
