@@ -7,6 +7,7 @@ function ItemModal({
   handleEscapeClose,
   name,
   isOpen,
+  onDeleteItemClick,
 }) {
   const handleContentClick = (e) => {
     e.stopPropagation();
@@ -34,10 +35,21 @@ function ItemModal({
             type="button"
             onClick={handleCloseClick}
           ></button>
-          <img src={card.link} alt={card.name} className="modal__image" />
-          <div className="modal__card-info">
-            <h3 className="modal__card-title">{card.name}</h3>
-            <p className="modal__card-weather">Weather: {card.weather}</p>
+          <img src={card.imageUrl} alt={card.name} className="modal__image" />
+          <div className="modal__card-caption">
+            <div className="modal__card-info">
+              <h3 className="modal__card-title">{card.name}</h3>
+              <p className="modal__card-weather">Weather: {card.weather}</p>
+            </div>
+            <div className="modal__card-info-button">
+              <button
+                className="modal__card-delete"
+                type="button"
+                onClick={onDeleteItemClick}
+              >
+                Delete item
+              </button>
+            </div>
           </div>
         </div>
       </div>

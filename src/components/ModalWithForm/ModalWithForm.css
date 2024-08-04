@@ -111,6 +111,9 @@
     padding: 8px 16px;
     width: 124px;
     height: 36px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
     border: none;
     background-color: #000;
     color: #fff;
@@ -141,6 +144,15 @@
     overflow: hidden;
 }
 
+.modal__content_type_delete {
+    position: relative;
+    padding: 60px 0;
+    max-width: 670px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .modal__submit-btn_disabled {
     opacity: 0.3;
     cursor: default;
@@ -149,6 +161,21 @@
 .modal__close-btn_type_preview {
     background: transparent url(../../assets/image-close-btn.svg) no-repeat;
 
+}
+
+/* My attempt to make this modal work with the form */
+.modal__submit-btn_type_delete {
+    width: 140px;
+    margin: 0 auto 48px;
+    padding: 0;
+    background: none;
+    border: none;
+    align-self: stretch;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #FF4D00;
+    cursor: pointer;
 }
 
 .modal__input:focus {

@@ -1,0 +1,26 @@
+.modal__delete-warning {
+    margin: 0 0 40px;
+    padding: 0;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    text-align: center;
+}
+
+
+
+.modal__delete-cancel {
+    position: absolute;
+    bottom: 60px;
+    left: 304px;
+    max-width: 62px;
+    padding: 0;
+    background: none;
+    border: none;
+    align-self: stretch;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    cursor: pointer;
+}
+

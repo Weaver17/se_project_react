@@ -3,10 +3,10 @@ import { useContext } from "react";
 import "./Main.css";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
-import { defaultClothingItems } from "../../utils/constants";
+// import { defaultClothingItems } from "../../utils/constants";
 import CurrentTempUnitContext from "../../contexts/CurrentTempUnitContext";
 
-function Main({ weatherData, handleCardClick }) {
+function Main({ weatherData, handleCardClick, clothingItems }) {
   const { currentTempUnit } = useContext(CurrentTempUnitContext);
 
   return (
@@ -19,7 +19,7 @@ function Main({ weatherData, handleCardClick }) {
           {currentTempUnit} / You may want to wear:
         </h1>
         <ul className="main__items-list">
-          {defaultClothingItems
+          {clothingItems
             .filter((item) => {
               return item.weather === weatherData.type;
             })
