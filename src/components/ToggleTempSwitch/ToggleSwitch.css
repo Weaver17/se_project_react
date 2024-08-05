@@ -31,6 +31,11 @@
     pointer-events: none;
 }
 
+.toggle-switch_checkbox:hover {
+    border: solid 2px rgba(0, 0, 0, 1);
+    transition: 0.3s linear;
+}
+
 .toggle-switch__slider_F {
     top: 0;
     left: 0;
@@ -67,3 +72,11 @@
     color: #fff;
 }
 
+.toggle-switch_checkbox:hover ~ .toggle-switch__temp_F,
+.toggle-switch_checkbox:hover ~ .toggle-switch__temp_C {
+    color: #000;
+}
+
+.toggle-switch_checkbox:hover ~ .toggle-switch__temp_active {
+    color: #fff;
+}
