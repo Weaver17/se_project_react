@@ -4,3 +4,15 @@
     display: flex;
     gap: 116px;
 }
+
+@media screen and (max-width: 1333px) {
+    .profile {
+        gap: 80px;
+    }
+}
+
+@media screen and (max-width: 955px) {
+    .profile {
+        gap: 40px;
+    }
+}

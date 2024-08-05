@@ -18,3 +18,9 @@
     line-height: 25px;
     font-weight: 700;
 }
+
+@media screen and (max-width: 955px) {
+    .sidebar {
+        flex-direction: column;
+    }
+}

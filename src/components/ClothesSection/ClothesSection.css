@@ -32,10 +32,24 @@
 .clothes-section__items-list {
     display: flex;
     gap: 20px;
-    /* grid-template-columns: repeat(auto-fit, 325px); */
     list-style-type: none;
     margin: 0;
     padding: 0;
     justify-content: left;
     flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1333px) {
+    .clothes-section__items-list {
+        justify-content: center;
+    }
+
+}
+
+@media screen and (max-width: 720px) {
+    .clothes-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

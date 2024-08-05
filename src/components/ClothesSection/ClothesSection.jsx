@@ -1,13 +1,7 @@
 import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
-// import { defaultClothingItems } from "../../utils/constants";
 
-function ClothesSection({
-  handleCardClick,
-  clothingItems,
-  onAddNewClick,
-  itemToDelete,
-}) {
+function ClothesSection({ handleCardClick, clothingItems, onAddNewClick }) {
   return (
     <div className="clothes-section">
       <div className="clothes-section__info">
