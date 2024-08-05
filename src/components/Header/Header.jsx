@@ -31,8 +31,8 @@ function Header({ handleAddClothesClick, weatherData }) {
         <p className="header__date-location">
           {currentDate}, {weatherData.city}
         </p>
+        <ToggleSwitch />
         <div className="header__right-wrapper">
-          <ToggleSwitch />
           <button
             className="header__clothes-btn"
             type="button"

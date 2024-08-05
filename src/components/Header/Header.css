@@ -22,7 +22,7 @@
 }
 
 .header__right-wrapper {
-    margin-left: auto;
+    margin: 0 0 0 20px;
     display: flex;
     align-items: center;
 }
@@ -76,6 +76,24 @@
 .header__mobile {
     display: none;
     
+}
+
+@media screen and (max-width: 720px) {
+    .header__logo {
+        margin-right: 5px;
+    }
+
+    .header__right-wrapper {
+        margin-left: 5px;
+    }
+
+    .header__clothes-btn {
+        margin-right: 10px;
+    }
+
+    .header__user-container {
+        gap: 6px;
+    }
 }
 
 @media screen and (max-width: 625px) {

@@ -24,3 +24,20 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 720px) {
+    .modal__delete-cancel {
+        left: 195px
+    }
+}
+
+@media screen and (max-width: 515px) {
+    .modal__delete-warning {
+        margin-bottom: 20px;
+        padding: 0 20px;
+    }
+
+    .modal__delete-cancel {
+        bottom: 35px;
+        left: 138px
+    }
+}

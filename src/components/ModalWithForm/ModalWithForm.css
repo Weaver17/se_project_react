@@ -211,6 +211,12 @@
     color: #000;
 }
 
+@media screen and (max-width: 720px) {
+    .modal__content_type_delete {
+        max-width: 450px;
+    }
+}
+
 @media screen and (max-width: 515px) {
     .modal__content_type_add_garment {
         position: absolute;
@@ -218,6 +224,12 @@
         max-width: 100%;
         border-radius: 12px 12px 0 0;
         border: none;
+    }
+
+    .modal__content_type_delete {
+        padding-bottom: 30px;
+        max-width: 343px;
+        max-height: 463px;
     }
 
     .modal__submit-btn {
