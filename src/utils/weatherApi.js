@@ -26,25 +26,12 @@ const isDay = ({ sunrise, sunset }, now) => {
     return sunrise * 1000 < now && now < sunset * 1000;
 }
 
-const getWeatherType = (temperature) => {
-    // if (currentTempUnit === 'F') {
-        if (temperature >= 77) {
+const getWeatherType = (fahrenheit, celcius) => {
+        if (fahrenheit >= 77 || celcius >= 25) {
             return 'hot';
-          } else if (temperature >= 60) {
+          } else if (fahrenheit >= 60 || celcius >= 15) {
            return 'warm';
-         } else {
+         } else if (fahrenheit <= 50 || celcius <= 10) {
            return 'cold';
          }
-        // }
-    // else {
-    //     if (temperature >= 25) {
-    //         return 'hot';
-    //       } else if (temperature >= 15) {
-    //         return 'warm';
-    //       } else {
-    //         return 'cold';
-    //       }
-    // } 
-    
-
 }
