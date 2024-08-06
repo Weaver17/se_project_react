@@ -83,7 +83,9 @@ function App() {
       .then(() => {
         closeActiveModal();
       })
-      .then(setItemToDelete({}))
+      .then(() => {
+        setItemToDelete({});
+      })
       .catch(console.error)
       .finally(() => {
         setIsLoading(false);
