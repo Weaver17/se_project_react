@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Form } from "react-router-dom";
 
 import "./App.css";
 
@@ -26,11 +26,11 @@ function App() {
   const [currentTempUnit, setCurrentTempUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
   const [itemToDelete, setItemToDelete] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
-    setItemToDelete(card);
   };
 
   const handleAddClothesClick = () => {
@@ -52,15 +52,19 @@ function App() {
   };
 
   const handleAddItemSubmit = (values) => {
+    setIsLoading(true);
     addItem(values)
       .then((data) => {
         const { _id, name, imageUrl, weather } = data;
         const newItemData = { _id, name, imageUrl, weather };
         setClothingItems([newItemData, ...clothingItems]);
       })
-      .then(setActiveModal(""))
-      .catch((err) => {
-        console.error(`Failed to add item: ${err}`);
+      .then(() => {
+        closeActiveModal();
+      })
+      .catch(console.error)
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
@@ -70,15 +74,19 @@ function App() {
   };
 
   const handleDeleteConfirm = () => {
+    setIsLoading(true);
     const updatedItems = clothingItems.filter(
       (item) => item._id !== itemToDelete._id
     );
     removeItem(itemToDelete._id)
       .then(setClothingItems(updatedItems))
-      .then(setActiveModal(""))
+      .then(() => {
+        closeActiveModal();
+      })
       .then(setItemToDelete({}))
-      .catch((err) => {
-        console.error(`Failed to delete item: ${err}`);
+      .catch(console.error)
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
@@ -135,6 +143,7 @@ function App() {
       </CurrentTempUnitContext.Provider>
       <AddItemModal
         isOpen={activeModal === "add_garment"}
+        isLoading={isLoading}
         onAddItem={handleAddItemSubmit}
         handleCloseClick={closeActiveModal}
         handleEscapeClose={handleEscapeClose}
@@ -149,6 +158,7 @@ function App() {
       />
       <DeleteModal
         isOpen={activeModal === "delete"}
+        isLoading={isLoading}
         handleCloseClick={closeActiveModal}
         handleDeleteConfirm={handleDeleteConfirm}
       />

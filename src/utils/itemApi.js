@@ -1,11 +1,15 @@
 const baseUrl = 'http://localhost:3001';
 
-const handleServerResponse = (res) => {
+function request(url, options) {
+    return fetch(url, options).then(handleServerResponse)
+  }
+
+export const handleServerResponse = (res) => {
     return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 }
 
 export function getItems() {
-    return fetch(`${baseUrl}/items`).then(handleServerResponse)
+    return request(`${baseUrl}/items`);
 }
 
 export function addItem({ name, imageUrl, weather }) {
@@ -28,5 +32,5 @@ export function removeItem(itemId) {
       headers: { 
         "Content-Type": "application/json"
         },
-    });
+    }).then(handleServerResponse);;
   }

@@ -1,7 +1,12 @@
 import "./DeleteModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function DeleteModal({ isOpen, handleCloseClick, handleDeleteConfirm }) {
+function DeleteModal({
+  isOpen,
+  handleCloseClick,
+  handleDeleteConfirm,
+  isLoading,
+}) {
   const handleSubmit = (e) => {
     e.preventDefault();
     handleDeleteConfirm();
@@ -10,7 +15,7 @@ function DeleteModal({ isOpen, handleCloseClick, handleDeleteConfirm }) {
     <ModalWithForm
       name="delete"
       isOpen={isOpen}
-      buttonText="Yes, delete item"
+      buttonText={isLoading ? "Deleting..." : "Yes, delete item"}
       handleCloseClick={handleCloseClick}
       onSubmit={handleSubmit}
     >
