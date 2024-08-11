@@ -60,14 +60,16 @@ function Header({ handleAddClothesClick, weatherData }) {
 
       {isMobileMenuOpened && (
         <div className="header__mobile">
-          <div className="header__user-container">
-            <p className="header__username">Username</p>
-            <img
-              className="header__user-avatar"
-              src={avatar}
-              alt="User Avatar"
-            />
-          </div>
+          <Link to="/profile" className="header__mobile-link">
+            <div className="header__user-container">
+              <p className="header__username">Username</p>
+              <img
+                className="header__user-avatar"
+                src={avatar}
+                alt="User Avatar"
+              />
+            </div>
+          </Link>
           <button
             className="header__clothes-btn"
             type="button"

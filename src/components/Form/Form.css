@@ -1,0 +1,45 @@
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__submit-btn {
+    margin: 24px 0 0;
+    padding: 8px 16px;
+    width: 124px;
+    height: 36px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form__submit-btn_disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+/* My attempt to make this modal work with the form */
+.form__submit-btn_type_delete {
+    width: 140px;
+    margin: 0 auto 48px;
+    padding: 0;
+    background: none;
+    border: none;
+    align-self: stretch;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #FF4D00;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 515px) {
+    .form__submit-btn {
+        width: 100%;
+    }
+}

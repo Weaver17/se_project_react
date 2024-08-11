@@ -2,6 +2,7 @@ import { useEffect } from "react";
 
 import "./ModalWithForm.css";
 import Modal from "../Modal/Modal";
+import Form from "../Form/Form";
 
 function ModalWithForm({
   children,
@@ -56,7 +57,7 @@ function ModalWithForm({
   return (
     <Modal name={name} onClose={handleCloseClick} isOpen={isOpen}>
       <h2 className="modal__title">{title}</h2>
-      <form className="modal__form" name={name} onSubmit={onSubmit}>
+      {/* <form className="modal__form" name={name} onSubmit={onSubmit}>
         {children}
         <button
           className={`modal__submit-btn modal__submit-btn_type_${name}`}
@@ -64,7 +65,10 @@ function ModalWithForm({
         >
           {buttonText}
         </button>
-      </form>
+      </form> */}
+      <Form name={name} onSubmit={onSubmit} buttonText={buttonText}>
+        {children}
+      </Form>
     </Modal>
   );
 }

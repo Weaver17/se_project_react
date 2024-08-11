@@ -146,6 +146,11 @@
         margin-bottom: 12px;
     }
 
+    .header__mobile-link {
+        text-decoration: none;
+        color: #000;
+    }
+
     .header__clothes-btn {
         margin: 0;
     }

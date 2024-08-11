@@ -117,12 +117,14 @@
     .modal__content_type_preview {
         max-width: 343px;
         max-height: 463px;
+        border-radius: 12px;
     }
 
     .modal__content_type_delete {
         padding-bottom: 30px;
         max-width: 343px;
         max-height: 463px;
+        border-radius: 12px;
     }
 
     .modal__close-btn_type_add_garment {
