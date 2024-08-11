@@ -2,9 +2,8 @@
 
 ### Recent Updates
 
-- Weather API
-- Item and Add Garment Modals
-- Fully Responsive Design
+- User Homepage
+- Updated Responsive Design
 
 ### Overview
 
@@ -33,5 +32,5 @@ The idea of the application is pretty simple - we make a call to an API, which t
 **Future Updates**
 
 - Form Validator
-- Fully functional Add Garment Form
+- Custom Built Server
 - Custom User Info and Avatar

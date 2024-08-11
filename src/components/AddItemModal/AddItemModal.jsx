@@ -6,7 +6,7 @@ const AddItemModal = ({
   isOpen,
   onAddItem,
   handleCloseClick,
-  handleEscapeClose,
+  // handleEscapeClose,
   isLoading,
 }) => {
   const [name, setName] = useState("");
@@ -50,7 +50,7 @@ const AddItemModal = ({
       isOpen={isOpen}
       onSubmit={handleSubmit}
       handleCloseClick={handleCloseClick}
-      handleEscapeClose={handleEscapeClose}
+      // handleEscapeClose={handleEscapeClose}
     >
       <label htmlFor="name" className="modal__label">
         Name{" "}

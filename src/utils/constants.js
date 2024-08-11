@@ -117,3 +117,5 @@ export const coordinates = {
 }
 
 export const APIkey = 'a98ca634fba75265fa51bba13409546d'
+
+// json-server --watch db.json --id _id --port 3001

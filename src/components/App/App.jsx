@@ -45,11 +45,11 @@ function App() {
     currentTempUnit === "F" ? setCurrentTempUnit("C") : setCurrentTempUnit("F");
   };
 
-  const handleEscapeClose = (e) => {
-    if (e.key === "Escape") {
-      closeActiveModal();
-    }
-  };
+  // const handleEscapeClose = (e) => {
+  //   if (e.key === "Escape") {
+  //     closeActiveModal();
+  //   }
+  // };
 
   const handleAddItemSubmit = (values) => {
     setIsLoading(true);
@@ -148,13 +148,13 @@ function App() {
         isLoading={isLoading}
         onAddItem={handleAddItemSubmit}
         handleCloseClick={closeActiveModal}
-        handleEscapeClose={handleEscapeClose}
+        // handleEscapeClose={handleEscapeClose}
       />
       <ItemModal
         name="preview"
         card={selectedCard}
         handleCloseClick={closeActiveModal}
-        handleEscapeClose={handleEscapeClose}
+        // handleEscapeClose={handleEscapeClose}
         onDeleteItemClick={() => handleDeleteItem(selectedCard)}
         isOpen={activeModal === "preview"}
       />
