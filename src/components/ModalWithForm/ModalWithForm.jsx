@@ -10,62 +10,12 @@ function ModalWithForm({
   title,
   name,
   handleCloseClick,
-  // handleEscapeClose,
   isOpen,
   onSubmit,
 }) {
-  //   const handleContentClick = (e) => {
-  //     e.stopPropagation();
-  //   };
-
-  //   useEffect(() => {
-  //     if (isOpen) {
-  //       document.addEventListener("keydown", handleEscapeClose);
-  //     }
-
-  //     return () => {
-  //       document.removeEventListener("keydown", handleEscapeClose);
-  //     };
-  //   }, [isOpen, handleEscapeClose]);
-
-  //   return (
-  //     <div className={`modal ${isOpen && "modal_opened"}`}>
-  //       <div className="modal__background" onClick={handleCloseClick}>
-  //         <div
-  //           className={`modal__content modal__content_type_${name}`}
-  //           onClick={handleContentClick}
-  //         >
-  //           <button
-  //             className="modal__close-btn"
-  //             type="button"
-  //             onClick={handleCloseClick}
-  //           ></button>
-  //           <h2 className="modal__title">{title}</h2>
-  //           <form className="modal__form" name={name} onSubmit={onSubmit}>
-  //             {children}
-  //             <button
-  //               className={`modal__submit-btn modal__submit-btn_type_${name}`}
-  //               type="submit"
-  //             >
-  //               {buttonText}
-  //             </button>
-  //           </form>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
   return (
     <Modal name={name} onClose={handleCloseClick} isOpen={isOpen}>
-      <h2 className="modal__title">{title}</h2>
-      {/* <form className="modal__form" name={name} onSubmit={onSubmit}>
-        {children}
-        <button
-          className={`modal__submit-btn modal__submit-btn_type_${name}`}
-          type="submit"
-        >
-          {buttonText}
-        </button>
-      </form> */}
+      <h2 className={`modal__title modal__title_type_${name}`}>{title}</h2>
       <Form name={name} onSubmit={onSubmit} buttonText={buttonText}>
         {children}
       </Form>

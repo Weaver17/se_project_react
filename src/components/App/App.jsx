@@ -14,6 +14,8 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import { getItems, addItem, removeItem } from "../../utils/itemApi";
 import DeleteModal from "../DeleteModal/DeleteModal";
+import RegisterModal from "../RegisterModal/RegisterModal";
+import LoginModal from "../LoginModal/LoginModal";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -21,7 +23,7 @@ function App() {
     temp: { F: 999, C: 999 },
     city: "",
   });
-  const [activeModal, setActiveModal] = useState("");
+  const [activeModal, setActiveModal] = useState("login");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTempUnit, setCurrentTempUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
@@ -44,12 +46,6 @@ function App() {
   const handleToggleSwitchChange = () => {
     currentTempUnit === "F" ? setCurrentTempUnit("C") : setCurrentTempUnit("F");
   };
-
-  // const handleEscapeClose = (e) => {
-  //   if (e.key === "Escape") {
-  //     closeActiveModal();
-  //   }
-  // };
 
   const handleAddItemSubmit = (values) => {
     setIsLoading(true);
@@ -148,13 +144,11 @@ function App() {
         isLoading={isLoading}
         onAddItem={handleAddItemSubmit}
         handleCloseClick={closeActiveModal}
-        // handleEscapeClose={handleEscapeClose}
       />
       <ItemModal
         name="preview"
         card={selectedCard}
         handleCloseClick={closeActiveModal}
-        // handleEscapeClose={handleEscapeClose}
         onDeleteItemClick={() => handleDeleteItem(selectedCard)}
         isOpen={activeModal === "preview"}
       />
@@ -163,6 +157,14 @@ function App() {
         isLoading={isLoading}
         handleCloseClick={closeActiveModal}
         handleDeleteConfirm={handleDeleteConfirm}
+      />
+      <RegisterModal
+        handleCloseClick={closeActiveModal}
+        isOpen={activeModal === "register"}
+      />
+      <LoginModal
+        handleCloseClick={closeActiveModal}
+        isOpen={activeModal === "login"}
       />
     </div>
   );

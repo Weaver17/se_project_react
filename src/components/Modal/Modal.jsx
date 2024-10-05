@@ -14,7 +14,6 @@ function Modal({ name, onClose, children, isOpen }) {
     };
 
     document.addEventListener("keydown", handleEscape);
-    // don’t forget to remove the listener in the `clean-up` function
     return () => document.removeEventListener("keydown", handleEscape);
   }, [onClose]);
 
@@ -25,17 +24,13 @@ function Modal({ name, onClose, children, isOpen }) {
     }
   };
 
-  // then we add the main wrapper with class `modal`
   return (
     <div
       className={`modal ${isOpen && "modal_opened"}`}
       onClick={handleOverlay}
     >
-      {/* the container for the contents */}
       <div className={`modal__content modal__content_type_${name}`}>
-        {/* here will be anything you add as `children`*/}
         {children}
-        {/* add the close button */}
         <button
           className={`modal__close-btn_type_${name}`}
           type="button"
