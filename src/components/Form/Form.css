@@ -45,7 +45,12 @@
 }
 
 .form__submit-btn_type_login {
-    width: 73px;
+    width: 79px;
+    height: 36px;
+}
+
+.form__submit-btn_type_edit {
+    width: 131px;
     height: 36px;
 }
 
@@ -72,7 +77,7 @@
     height: 36px;
     position: absolute;
     bottom: 36px;
-    left: 102px;
+    left: 108px;
     font-size: 16px;
     line-height: 20px;
     font-weight: 700;
@@ -86,5 +91,15 @@
 @media screen and (max-width: 515px) {
     .form__submit-btn {
         width: 100%;
+    }
+
+    .form__submit-btn_type_go_to_login {
+        bottom: 32px;
+        left: 0;
+    }
+
+    .form__submit-btn_type_go_to_sign_up {
+        bottom: 36px;
+        left: 0;
     }
 }

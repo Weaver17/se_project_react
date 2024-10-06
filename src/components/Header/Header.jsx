@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import "./Header.css";
 import logo from "../../assets/WTWRLogo.svg";
 import avatar from "../../assets/avatar.svg";
 import ToggleSwitch from "../ToggleTempSwitch/ToggleSwitch";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-function Header({ handleAddClothesClick, weatherData }) {
+function Header({
+  handleAddClothesClick,
+  weatherData,
+  isLoggedIn,
+  handleLogInClick,
+  handleSignUpClick,
+}) {
+  const currentUser = useContext(CurrentUserContext);
+
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -22,6 +31,16 @@ function Header({ handleAddClothesClick, weatherData }) {
     setMobileMenuOpened(false);
   };
 
+  const handleSignUpMobile = () => {
+    handleSignUpClick();
+    setMobileMenuOpened(false);
+  };
+
+  const handleLogInMobile = () => {
+    handleLogInClick();
+    setMobileMenuOpened(false);
+  };
+
   return (
     <header className="header">
       <Link to="/">
@@ -32,24 +51,56 @@ function Header({ handleAddClothesClick, weatherData }) {
           {currentDate}, {weatherData.city}
         </p>
         <ToggleSwitch />
+
         <div className="header__right-wrapper">
-          <button
-            className="header__clothes-btn"
-            type="button"
-            onClick={handleAddClothesClick}
-          >
-            + Add clothes
-          </button>
-          <Link to="/profile" className="header__link">
-            <div className="header__user-container">
-              <p className="header__username">Username</p>
-              <img
-                className="header__user-avater"
-                src={avatar}
-                alt="User Avatar"
-              />
+          {
+            (currentUser,
+            isLoggedIn && (
+              <button
+                className="header__clothes-btn"
+                type="button"
+                onClick={handleAddClothesClick}
+              >
+                + Add clothes
+              </button>
+            ))
+          }
+
+          {isLoggedIn ? (
+            <Link to="/profile" className="header__link">
+              <div className="header__user-container">
+                <p className="header__username">{currentUser?.name}</p>
+                {currentUser?.avatar ? (
+                  <img
+                    className="header__user-avatar"
+                    src={currentUser?.avatar}
+                    alt="User Avatar"
+                  />
+                ) : (
+                  <div className="header__user-no-avatar">
+                    {currentUser?.name?.[0]?.toUpperCase()}
+                  </div>
+                )}
+              </div>
+            </Link>
+          ) : (
+            <div className="header__button-container">
+              <button
+                type="button"
+                className="header__signup-btn"
+                onClick={handleSignUpClick}
+              >
+                Sign Up
+              </button>
+              <button
+                type="button"
+                className="header__login-btn"
+                onClick={handleLogInClick}
+              >
+                Log In
+              </button>
             </div>
-          </Link>
+          )}
         </div>
       </div>
       <button
@@ -60,28 +111,60 @@ function Header({ handleAddClothesClick, weatherData }) {
 
       {isMobileMenuOpened && (
         <div className="header__mobile">
-          <Link to="/profile" className="header__mobile-link">
-            <div className="header__user-container">
-              <p className="header__username">Username</p>
-              <img
-                className="header__user-avatar"
-                src={avatar}
-                alt="User Avatar"
-              />
+          {isLoggedIn ? (
+            <div className="header__mobile-info">
+              <Link to="/profile" className="header__mobile-link">
+                <div className="header__user-container">
+                  <p className="header__username">{currentUser?.name}</p>
+                  {currentUser?.avatar ? (
+                    <img
+                      className="header__user-avatar"
+                      src={currentUser?.avatar}
+                      alt="User Avatar"
+                    />
+                  ) : (
+                    <div className="header__user-no-avatar">
+                      {currentUser?.name?.[0]?.toUpperCase()}
+                    </div>
+                  )}
+                </div>
+              </Link>
+              <button
+                className="header__clothes-btn"
+                type="button"
+                onClick={handleAddClothesMobile}
+              >
+                + Add clothes
+              </button>
+              <button
+                className="header__mobile-close-btn"
+                type="button"
+                onClick={toggleMobileMenu}
+              ></button>
             </div>
-          </Link>
-          <button
-            className="header__clothes-btn"
-            type="button"
-            onClick={handleAddClothesMobile}
-          >
-            + Add clothes
-          </button>
-          <button
-            className="header__mobile-close-btn"
-            type="button"
-            onClick={toggleMobileMenu}
-          ></button>
+          ) : (
+            <div className="header__mobile-buttons">
+              <button
+                type="button"
+                className="header__signup-btn"
+                onClick={handleSignUpMobile}
+              >
+                Sign Up
+              </button>
+              <button
+                type="button"
+                className="header__login-btn"
+                onClick={handleLogInMobile}
+              >
+                Log In
+              </button>
+              <button
+                className="header__mobile-close-btn"
+                type="button"
+                onClick={toggleMobileMenu}
+              ></button>
+            </div>
+          )}
         </div>
       )}
     </header>

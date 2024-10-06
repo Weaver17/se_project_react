@@ -35,7 +35,7 @@
     font-weight: 700;
 }
 
-.modal__card-delete {
+.modal__card-delete-btn {
     margin: 0;
     padding: 0;
     background: none;
@@ -46,6 +46,14 @@
     font-weight: 700;
     color: #FF4D00;
     cursor: pointer;
+}
+
+.modal__card-delete-btn_visible {
+    visibility: visible;
+}
+
+.modal__card-delete-btn_hidden {
+    visibility: hidden;
 }
 
 @media screen and (max-width: 515px) {

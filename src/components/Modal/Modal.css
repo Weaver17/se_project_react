@@ -26,7 +26,7 @@
     background-size: contain;
     background: transparent url(../../assets/add-close-btn.png) no-repeat;
     cursor: pointer;
-    font-weight: 700;
+    
 }
 
 .modal__close-btn_type_preview {
@@ -39,7 +39,7 @@
     border: none;
     background-size: contain;
     cursor: pointer;
-    font-weight: 700;
+    
     background: transparent url(../../assets/image-close-btn.svg) no-repeat;
 }
 
@@ -53,7 +53,7 @@
     border: none;
     background-size: contain;
     cursor: pointer;
-    font-weight: 700;
+    
     background: transparent url(../../assets/add-close-btn.png) no-repeat;
 }
 
@@ -68,7 +68,7 @@
     background-size: contain;
     background: transparent url(../../assets/add-close-btn.png) no-repeat;
     cursor: pointer;
-    font-weight: 700;
+    
 }
 
 .modal__close-btn_type_login {
@@ -82,7 +82,21 @@
     background-size: contain;
     background: transparent url(../../assets/add-close-btn.png) no-repeat;
     cursor: pointer;
-    font-weight: 700;
+    
+}
+
+.modal__close-btn_type_edit {
+    position: absolute;
+    top: 20px;
+    right: 28px;
+    padding: 2px;
+    height: 20px;
+    width: 20px;
+    border: none;
+    background-size: contain;
+    background: transparent url(../../assets/add-close-btn.png) no-repeat;
+    cursor: pointer;
+    
 }
 
 .modal_opened {
@@ -149,6 +163,17 @@
     border: solid 1px rgba(0, 0, 0, 0.3);
 }
 
+.modal__content_type_edit {
+    background-color: #fff;
+    position: relative;
+    padding: 28px 28px 36px;
+    box-sizing: border-box;
+    max-width: 496px;
+    width: 100%;
+    border-radius: 20px;
+    border: solid 1px rgba(0, 0, 0, 0.3);
+}
+
 @media screen and (max-width: 720px) {
     .modal__content_type_delete {
         max-width: 450px;
@@ -175,6 +200,24 @@
         max-width: 343px;
         max-height: 463px;
         border-radius: 12px;
+    }
+
+    .modal__content_type_register {
+        padding-bottom: 72px;
+        position: absolute;
+        bottom: 0;
+        max-width: 100%;
+        border-radius: 12px 12px 0 0;
+        border: none;
+    }
+
+    .modal__content_type_login {
+        padding-bottom: 72px;
+        position: absolute;
+        bottom: 0;
+        max-width: 100%;
+        border-radius: 12px 12px 0 0;
+        border: none;
     }
 
     .modal__close-btn_type_add_garment {
