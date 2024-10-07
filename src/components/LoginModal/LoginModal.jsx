@@ -44,12 +44,12 @@ const LoginModal = ({
       buttonText={isLoading ? "..." : "Sign In"}
       onSubmit={handleSubmit}
     >
-      <label htmlFor="email" className="modal__label">
+      <label htmlFor="login-email" className="modal__label">
         Email*
         <input
           type="email"
-          id="loginEmail"
-          name="email"
+          id="login-email"
+          name="login-email"
           className="modal__input"
           placeholder="Email"
           value={data.email}
@@ -57,12 +57,12 @@ const LoginModal = ({
           required
         />
       </label>
-      <label htmlFor="password" className="modal__label">
+      <label htmlFor="login-password" className="modal__label">
         Password*
         <input
           type="password"
-          id="loginPassword"
-          name="password"
+          id="login-password"
+          name="login-password"
           className="modal__input"
           placeholder="Password"
           value={data.password}

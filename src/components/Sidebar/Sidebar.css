@@ -25,6 +25,10 @@
     font-size: 20px;
     line-height: 25px;
     font-weight: 700;
+    max-width: 175px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .sidebar__edit {

@@ -29,19 +29,14 @@ function App() {
     temp: { F: 999, C: 999 },
     city: "",
   });
-  const [activeModal, setActiveModal] = useState("edit");
+  const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTempUnit, setCurrentTempUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
   const [itemToDelete, setItemToDelete] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [currentUser, setCurrentUser] = useState({
-    name: "",
-    email: "",
-    avatar: "",
-    _id: "",
-  });
+  const [currentUser, setCurrentUser] = useState({});
 
   const navigate = useNavigate();
 
@@ -63,6 +58,8 @@ function App() {
   };
 
   const handleEditClick = () => {
+    console.log(currentUser._id);
+
     setActiveModal("edit");
   };
 
@@ -135,6 +132,8 @@ function App() {
       })
       .then((userData) => {
         if (userData) {
+          console.log(currentUser);
+
           setCurrentUser(userData);
         }
       })
@@ -153,6 +152,9 @@ function App() {
       .then((data) => {
         setIsLoggedIn(true);
         console.log("Sign Up successful:", data);
+        if (!data.token) {
+          throw new Error("No token returned from registration");
+        }
         localStorage.setItem("jwt", data.token);
         return auth.checkToken(data.token);
       })
@@ -176,8 +178,10 @@ function App() {
 
     auth
       .editProfile({ name, avatar }, token)
-      .then((data) => {
-        setCurrentUser(data);
+      .then(() => {
+        setCurrentUser({ name, avatar });
+        console.log(currentUser);
+
         closeActiveModal();
       })
       .catch(console.error);
@@ -238,6 +242,7 @@ function App() {
                 path="/"
                 element={
                   <Main
+                    isLoggedIn={isLoggedIn}
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}

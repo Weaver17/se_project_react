@@ -38,7 +38,7 @@ export const checkToken = (token) => {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  });
+  }).then((res) => res.message);
 };
 
 export const editProfile = ({ name, avatar }, token) => {
@@ -49,5 +49,5 @@ export const editProfile = ({ name, avatar }, token) => {
       authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ name, avatar }),
-  });
+  }).then((res) => res.message);
 };

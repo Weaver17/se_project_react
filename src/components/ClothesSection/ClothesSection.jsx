@@ -32,6 +32,7 @@ function ClothesSection({
               <ItemCard
                 key={item._id}
                 item={item}
+                isLoggedIn={isLoggedIn}
                 onCardClick={handleCardClick}
               />
             );

@@ -42,12 +42,12 @@ const RegisterModal = ({
       buttonText={isLoading ? "..." : "Sign Up"}
       onSubmit={handleSubmit}
     >
-      <label htmlFor="email" className="modal__label">
+      <label htmlFor="sign-up-email" className="modal__label">
         Email*
         <input
           type="email"
-          id="signUpEmail"
-          name="email"
+          id="sign-up-email"
+          name="sign-up-email"
           className="modal__input"
           placeholder="Email"
           value={data.email}
@@ -55,12 +55,12 @@ const RegisterModal = ({
           required
         />
       </label>
-      <label htmlFor="password" className="modal__label">
+      <label htmlFor="sign-up-password" className="modal__label">
         Password*
         <input
           type="password"
-          id="signUpPassword"
-          name="password"
+          id="sign-up-password"
+          name="sign-up-password"
           className="modal__input"
           placeholder="Password"
           value={data.password}
@@ -68,12 +68,12 @@ const RegisterModal = ({
           required
         />
       </label>
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="sign-up-name" className="modal__label">
         Name*
         <input
           type="text"
-          id="signUpName"
-          name="name"
+          id="sign-up-name"
+          name="sign-up-name"
           className="modal__input"
           placeholder="Name"
           value={data.name}
@@ -81,12 +81,12 @@ const RegisterModal = ({
           required
         />
       </label>
-      <label htmlFor="avatar" className="modal__label">
+      <label htmlFor="sign-up-avatar" className="modal__label">
         Avatar URL*
         <input
           type="url"
-          id="signUpAvatar"
-          name="avatar"
+          id="sign-up-avatar"
+          name="sign-up-avatar"
           className="modal__input"
           placeholder="Avatar URL"
           value={data.avatar}

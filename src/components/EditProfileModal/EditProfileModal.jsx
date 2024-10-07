@@ -10,13 +10,9 @@ const EditProfileModal = ({
   handleEditProfile,
 }) => {
   const currentUser = useContext(CurrentUserContext);
-  const [name, setName] = useState({
-    name: currentUser.name,
-  });
+  const [name, setName] = useState(currentUser.name || "");
 
-  const [avatar, setAvatar] = useState({
-    name: currentUser.avatar,
-  });
+  const [avatar, setAvatar] = useState(currentUser.avatar || "");
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -32,8 +28,8 @@ const EditProfileModal = ({
   };
 
   useEffect(() => {
-    setName("");
-    setAvatar("");
+    setName(currentUser.name || "");
+    setAvatar(currentUser.avatar || "");
   }, [isOpen]);
 
   return (
@@ -45,22 +41,26 @@ const EditProfileModal = ({
       buttonText={isLoading ? "Saving..." : "Save Changes"}
       onSubmit={handleSubmit}
     >
-      <label htmlFor="editName" className="modal__label">
+      <label htmlFor="edit-name" className="modal__label">
         Name*
         <input
           type="text"
-          id="editName"
+          id="edit-name"
+          name="edit-name"
           className="modal__input"
+          value={name}
           onChange={handleNameChange}
           required
         />
       </label>
-      <label htmlFor="editAvatar" className="modal__label">
+      <label htmlFor="edit-avatar" className="modal__label">
         Avatar*
         <input
           type="url"
-          id="editAvatar"
+          id="edit-avatar"
+          name="edit-avatar"
           className="modal__input"
+          value={avatar}
           onChange={handleAvatarChange}
           required
         />

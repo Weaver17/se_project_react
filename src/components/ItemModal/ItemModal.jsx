@@ -13,9 +13,9 @@ function ItemModal({
   onDeleteItemClick,
   isLoggedIn,
 }) {
-  const currentuser = useContext(CurrentUserContext);
+  const currentUser = useContext(CurrentUserContext);
 
-  const isOwn = card.owner === currentuser._id;
+  const isOwn = card.owner === currentUser._id;
 
   const itemDeleteButtonClassName = `modal__card-delete-btn ${
     isOwn ? "modal__card-delete-btn_visible" : "modal__card-delete-btn_hidden"
@@ -31,7 +31,7 @@ function ItemModal({
         </div>
         <div className="modal__card-info-button">
           {
-            (currentuser,
+            (currentUser,
             isLoggedIn && (
               <button
                 className={itemDeleteButtonClassName}

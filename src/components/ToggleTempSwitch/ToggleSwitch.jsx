@@ -15,10 +15,11 @@ const ToggleSwitch = () => {
 
   return (
     <div className="toggle-switch">
-      <label htmlFor="" className="toggle-switch__label">
+      <label htmlFor="temp-switch-checkbox" className="toggle-switch__label">
         <input
           className="toggle-switch_checkbox"
           type="checkbox"
+          id="temp-switch-checkbox"
           name="temp-switch-checkbox"
           value={currentTempUnit}
           onChange={handleToggleSwitchChange}

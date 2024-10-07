@@ -4,9 +4,11 @@ import "./Main.css";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import CurrentTempUnitContext from "../../contexts/CurrentTempUnitContext";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-function Main({ weatherData, handleCardClick, clothingItems }) {
+function Main({ weatherData, handleCardClick, clothingItems, isLoggedIn }) {
   const { currentTempUnit } = useContext(CurrentTempUnitContext);
+  const currentUser = useContext(CurrentUserContext);
 
   return (
     <main className="main">
@@ -18,19 +20,24 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
           {currentTempUnit} / You may want to wear:
         </h1>
         <ul className="main__items-list">
-          {clothingItems
-            .filter((item) => {
-              return item.weather === weatherData.type;
-            })
-            .map((item) => {
-              return (
-                <ItemCard
-                  key={item._id}
-                  item={item}
-                  onCardClick={handleCardClick}
-                />
-              );
-            })}
+          {!isLoggedIn ? (
+            <p className="main__items-message">Please sign in to view items</p>
+          ) : (
+            clothingItems
+              .filter((item) => {
+                return item.weather === weatherData.type;
+              })
+              .map((item) => {
+                return (
+                  <ItemCard
+                    key={item._id}
+                    item={item}
+                    onCardClick={handleCardClick}
+                    isLoggedIn={isLoggedIn}
+                  />
+                );
+              })
+          )}
         </ul>
       </section>
       <button className="main__random-btn" type="button">
