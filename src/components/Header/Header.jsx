@@ -9,7 +9,6 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 function Header({
   handleAddClothesClick,
   weatherData,
-  // isLoggedIn,
   handleLogInClick,
   handleSignUpClick,
 }) {

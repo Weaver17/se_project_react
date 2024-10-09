@@ -8,7 +8,6 @@ function ClothesSection({
   handleCardClick,
   clothingItems,
   onAddNewClick,
-  // isLoggedIn,
   handleItemLike,
 }) {
   const { currentUser, isLoggedIn } = useContext(CurrentUserContext);

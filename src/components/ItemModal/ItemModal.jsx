@@ -11,7 +11,6 @@ function ItemModal({
   name,
   isOpen,
   onDeleteItemClick,
-  // isLoggedIn,
 }) {
   const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
 

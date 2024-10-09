@@ -1,19 +1,10 @@
 import { useContext } from "react";
-// import { useNavigate } from "react-router-dom";
 
 import "./Sidebar.css";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function Sidebar({ handleEditClick, handleLogOut }) {
-  const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
-
-  // const navigate = useNavigate();
-
-  // const logOut = () => {
-  //   localStorage.removeItem("jwt");
-  //   navigate("/");
-  //   setIsLoggedIn(false);
-  // };
+  const { currentUser } = useContext(CurrentUserContext);
 
   const handleLogOutClick = (e) => {
     e.preventDefault();

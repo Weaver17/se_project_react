@@ -25,7 +25,6 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
-// import { setToken, getToken } from "../../utils/token";
 
 import * as auth from "../../utils/auth";
 
@@ -64,8 +63,6 @@ function App() {
   };
 
   const handleEditClick = () => {
-    console.log(currentUser._id);
-
     setActiveModal("edit");
   };
 
@@ -90,8 +87,6 @@ function App() {
       .then((data) => {
         const { _id, name, imageUrl, weather, owner } = data;
         const newItemData = { _id, name, imageUrl, weather, owner };
-        console.log(data);
-        console.log(newItemData);
 
         setClothingItems((clothingItems) => [newItemData, ...clothingItems]);
       })
@@ -153,7 +148,6 @@ function App() {
 
   const handleLogin = ({ email, password }) => {
     setIsLoading(true);
-    console.log({ email, password });
 
     if (!email || !password) {
       return;
@@ -162,25 +156,16 @@ function App() {
     auth
       .authorize(email, password)
       .then((data) => {
-        console.log(data);
         setIsLoggedIn(true);
-        console.log(isLoggedIn);
 
         localStorage.setItem("jwt", data.token);
-        console.log("Token set:", data.token);
         closeActiveModal();
         return auth.checkToken(data.token);
       })
       .then((userData) => {
         if (userData) {
-          console.log(currentUser);
-
           setCurrentUser(userData);
         }
-      })
-      .then(() => {
-        // Correct place to log the updated isLoggedIn state
-        console.log("Login process completed, isLoggedIn:", isLoggedIn);
       })
       .catch(console.error)
       .finally(() => {
@@ -188,19 +173,13 @@ function App() {
       });
   };
 
-  useEffect(() => {
-    console.log("isLoggedIn?:", isLoggedIn);
-  }, [isLoggedIn]);
-
   const handleRegistration = ({ name, password, email, avatar }) => {
     setIsLoading(true);
-    console.log({ name, password, email, avatar });
 
     auth
       .register(name, password, email, avatar)
       .then((data) => {
         setIsLoggedIn(true);
-        console.log("Sign Up successful:", data);
         if (!data.token) {
           throw new Error("No token returned from registration");
         }
@@ -223,13 +202,11 @@ function App() {
 
   const handleEditProfile = ({ name, avatar }) => {
     const token = localStorage.getItem("jwt");
-    console.log({ name, avatar });
 
     auth
       .editProfile({ name, avatar }, token)
       .then(() => {
         setCurrentUser({ name, avatar });
-        console.log(currentUser);
 
         closeActiveModal();
       })
@@ -257,11 +234,6 @@ function App() {
       .catch(console.error);
 
     const token = localStorage.getItem("jwt");
-
-    if (!token) {
-      console.log("No token found, skipping auth check.");
-      return;
-    }
 
     auth
       .checkToken(token)

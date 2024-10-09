@@ -6,15 +6,9 @@ import ItemCard from "../ItemCard/ItemCard";
 import CurrentTempUnitContext from "../../contexts/CurrentTempUnitContext";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-function Main({
-  weatherData,
-  handleCardClick,
-  clothingItems,
-  // isLoggedIn,
-  handleItemLike,
-}) {
+function Main({ weatherData, handleCardClick, clothingItems, handleItemLike }) {
   const { currentTempUnit } = useContext(CurrentTempUnitContext);
-  const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
+  const { isLoggedIn } = useContext(CurrentUserContext);
 
   return (
     <main className="main">

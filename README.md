@@ -2,7 +2,10 @@
 
 ### Recent Updates
 
-- User Homepage
+- Functioning Log in
+- Authorization/Authentication
+- Edit user info
+- Like/Unlike Cards
 - Updated Responsive Design
 
 ### Overview
@@ -31,6 +34,4 @@ The idea of the application is pretty simple - we make a call to an API, which t
 
 **Future Updates**
 
-- Form Validator
-- Custom Built Server
-- Custom User Info and Avatar
+- More Security features

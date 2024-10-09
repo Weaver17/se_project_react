@@ -4,9 +4,7 @@ import "./Modal.css";
 import "../ModalWithForm/ModalWithForm.css";
 
 function Modal({ name, onClose, children, isOpen }) {
-  // here is `useEffect` for the `Escape` listener
   useEffect(() => {
-    // we should define the handler inside `useEffect`, so that it wouldn’t lose the reference to be able to remove it
     const handleEscape = (e) => {
       if (e.key === "Escape") {
         onClose();
@@ -17,7 +15,6 @@ function Modal({ name, onClose, children, isOpen }) {
     return () => document.removeEventListener("keydown", handleEscape);
   }, [onClose]);
 
-  // here is the overlay handler
   const handleOverlay = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
