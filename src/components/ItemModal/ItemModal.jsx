@@ -11,9 +11,9 @@ function ItemModal({
   name,
   isOpen,
   onDeleteItemClick,
-  isLoggedIn,
+  // isLoggedIn,
 }) {
-  const currentUser = useContext(CurrentUserContext);
+  const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
 
   const isOwn = card.owner === currentUser._id;
 

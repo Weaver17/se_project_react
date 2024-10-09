@@ -7,9 +7,10 @@ function Profile({
   clothingItems,
   handleAddClothesClick,
   itemToDelete,
-  isLoggedIn,
+  // isLoggedIn,
   handleEditClick,
   handleLogOut,
+  handleItemLike,
 }) {
   return (
     <div className="profile">
@@ -25,7 +26,8 @@ function Profile({
           clothingItems={clothingItems}
           onAddNewClick={handleAddClothesClick}
           itemToDelete={itemToDelete}
-          isLoggedIn={isLoggedIn}
+          // isLoggedIn={isLoggedIn}
+          handleItemLike={handleItemLike}
         />
       </section>
     </div>

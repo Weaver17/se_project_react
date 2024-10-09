@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 import "./ModalWithForm.css";
 import Modal from "../Modal/Modal";
 import Form from "../Form/Form";

@@ -15,6 +15,9 @@ export function getItems() {
 
 // POST ITEM
 export function addItem({ name, imageUrl, weather }, token) {
+  console.log({ name, imageUrl, weather });
+  console.log(token);
+
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
@@ -26,7 +29,9 @@ export function addItem({ name, imageUrl, weather }, token) {
       imageUrl,
       weather,
     }),
-  }).then(handleServerResponse);
+  })
+    .then(handleServerResponse)
+    .then((res) => res.data);
 }
 
 // DELETE ITEM
@@ -38,4 +43,31 @@ export function removeItem(itemId, token) {
       authorization: `Bearer ${token}`,
     },
   }).then(handleServerResponse);
+}
+
+// PUT LIKE
+export function likeItem(id, token) {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ token }),
+  })
+    .then(handleServerResponse)
+    .then((res) => res.data);
+}
+
+// DELETE LIKE
+export function unlikeItem(id, token) {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then(handleServerResponse)
+    .then((res) => res.data);
 }
