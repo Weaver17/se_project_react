@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { useForm } from "../../hooks/useForm";
 
 const RegisterModal = ({
   isOpen,
@@ -9,28 +10,22 @@ const RegisterModal = ({
   isLoading,
   handleLogInClick,
 }) => {
-  const [data, setData] = useState({
+  const { values, handleChange, setValues } = useForm({
     name: "",
     password: "",
     email: "",
     avatar: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleRegistration(data);
+    handleRegistration(values);
   };
 
   useEffect(() => {
-    setData({ name: "", password: "", email: "", avatar: "" });
+    if (isOpen) {
+      setValues({ name: "", password: "", email: "", avatar: "" });
+    }
   }, [isOpen]);
 
   return (
@@ -42,54 +37,50 @@ const RegisterModal = ({
       buttonText={isLoading ? "..." : "Sign Up"}
       onSubmit={handleSubmit}
     >
-      <label htmlFor="email" className="modal__label">
+      <label className="modal__label">
         Email*
         <input
           type="email"
-          id="sign-up-email"
           name="email"
           className="modal__input"
           placeholder="Email"
-          value={data.email}
+          value={values.email || ""}
           onChange={handleChange}
           required
         />
       </label>
-      <label htmlFor="password" className="modal__label">
+      <label className="modal__label">
         Password*
         <input
           type="password"
-          id="sign-up-password"
           name="password"
           className="modal__input"
           placeholder="Password"
-          value={data.password}
+          value={values.password || ""}
           onChange={handleChange}
           required
         />
       </label>
-      <label htmlFor="name" className="modal__label">
+      <label className="modal__label">
         Name*
         <input
           type="text"
-          id="sign-up-name"
           name="name"
           className="modal__input"
           placeholder="Name"
-          value={data.name}
+          value={values.name || ""}
           onChange={handleChange}
           required
         />
       </label>
-      <label htmlFor="avatar" className="modal__label">
+      <label className="modal__label">
         Avatar URL*
         <input
           type="url"
-          id="sign-up-avatar"
           name="avatar"
           className="modal__input"
           placeholder="Avatar URL"
-          value={data.avatar}
+          value={values.avatar || ""}
           onChange={handleChange}
           required
         />

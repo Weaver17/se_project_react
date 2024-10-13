@@ -41,7 +41,12 @@ function App() {
   const [itemToDelete, setItemToDelete] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState({
+    _id: "",
+    username: "",
+    email: "",
+    avatar: "",
+  });
 
   const navigate = useNavigate();
 
@@ -160,6 +165,7 @@ function App() {
 
         localStorage.setItem("jwt", data.token);
         closeActiveModal();
+
         return auth.checkToken(data.token);
       })
       .then((userData) => {
@@ -178,20 +184,8 @@ function App() {
 
     auth
       .register(name, password, email, avatar)
-      .then((data) => {
-        setIsLoggedIn(true);
-        if (!data.token) {
-          throw new Error("No token returned from registration");
-        }
-        localStorage.setItem("jwt", data.token);
-        return auth.checkToken(data.token);
-      })
-      .then((userData) => {
-        if (userData && userData.name) {
-          setCurrentUser({ name: userData.name });
-        }
-      })
       .then(() => {
+        handleLogin({ email, password });
         closeActiveModal();
       })
       .catch(console.error)
@@ -200,13 +194,13 @@ function App() {
       });
   };
 
-  const handleEditProfile = ({ name, avatar }) => {
+  const handleEditProfile = (data) => {
     const token = localStorage.getItem("jwt");
 
     auth
-      .editProfile({ name, avatar }, token)
+      .editProfile(data, token)
       .then(() => {
-        setCurrentUser({ name, avatar });
+        setCurrentUser(data);
 
         closeActiveModal();
       })
@@ -234,6 +228,11 @@ function App() {
       .catch(console.error);
 
     const token = localStorage.getItem("jwt");
+
+    // if (!token) {
+    //   console.log("JWT not found, user is not logged in.");
+    //   return;
+    // }
 
     auth
       .checkToken(token)

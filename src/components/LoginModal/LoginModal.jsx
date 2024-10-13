@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { useForm } from "../../hooks/useForm";
 
 const LoginModal = ({
   isOpen,
@@ -9,29 +10,19 @@ const LoginModal = ({
   isLoading,
   handleLogin,
 }) => {
-  const [data, setData] = useState({ email: "", password: "" });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  const { values, handleChange, setValues } = useForm({
+    email: "",
+    password: "",
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleLogin(data);
-    resetForm();
-  };
-
-  const resetForm = () => {
-    setData({ email: "", password: "" });
+    handleLogin(values);
   };
 
   useEffect(() => {
     if (isOpen) {
-      resetForm();
+      setValues({ email: "", password: "" });
     }
   }, [isOpen]);
 
@@ -44,28 +35,26 @@ const LoginModal = ({
       buttonText={isLoading ? "..." : "Sign In"}
       onSubmit={handleSubmit}
     >
-      <label htmlFor="email" className="modal__label">
+      <label className="modal__label">
         Email*
         <input
           type="email"
-          id="login-email"
           name="email"
           className="modal__input"
           placeholder="Email"
-          value={data.email}
+          value={values.email || ""}
           onChange={handleChange}
           required
         />
       </label>
-      <label htmlFor="password" className="modal__label">
+      <label className="modal__label">
         Password*
         <input
           type="password"
-          id="login-password"
           name="password"
           className="modal__input"
           placeholder="Password"
-          value={data.password}
+          value={values.password || ""}
           onChange={handleChange}
           required
         />

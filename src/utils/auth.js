@@ -8,6 +8,10 @@ export const register = (name, password, email, avatar) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ name, password, email, avatar }),
+  }).then((data) => {
+    localStorage.setItem("jwt", data.token);
+
+    return data;
   });
 };
 
@@ -21,6 +25,7 @@ export const authorize = (email, password) => {
     body: JSON.stringify({ email, password }),
   }).then((data) => {
     localStorage.setItem("jwt", data.token);
+
     return data;
   });
 };
@@ -43,5 +48,7 @@ export const editProfile = ({ name, avatar }, token) => {
       authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ name, avatar }),
-  }).then((res) => res.message);
+  }).then((res) => {
+    res.data;
+  });
 };
