@@ -20,25 +20,21 @@ function Main({ weatherData, handleCardClick, clothingItems, handleItemLike }) {
           {currentTempUnit} / You may want to wear:
         </h1>
         <ul className="main__items-list">
-          {!isLoggedIn ? (
-            <p className="main__items-message">Please sign in to view items</p>
-          ) : (
-            clothingItems
-              .filter((item) => {
-                return item.weather === weatherData.type;
-              })
-              .map((item) => {
-                return (
-                  <ItemCard
-                    key={item._id}
-                    item={item}
-                    onCardClick={handleCardClick}
-                    isLoggedIn={isLoggedIn}
-                    handleItemLike={handleItemLike}
-                  />
-                );
-              })
-          )}
+          {clothingItems
+            .filter((item) => {
+              return item.weather === weatherData.type;
+            })
+            .map((item) => {
+              return (
+                <ItemCard
+                  key={item._id}
+                  item={item}
+                  onCardClick={handleCardClick}
+                  isLoggedIn={isLoggedIn}
+                  handleItemLike={handleItemLike}
+                />
+              );
+            })}
         </ul>
       </section>
       <button className="main__random-btn" type="button">
