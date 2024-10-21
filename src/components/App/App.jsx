@@ -81,7 +81,7 @@ function App() {
 
   const handleAddItemSubmit = (values) => {
     setIsLoading(true);
-    const token = localStorage.getItem("jwt");
+    const token = localStorage.getItem("JWT_TOKEN");
 
     const newItemDataWithOwner = {
       ...values,
@@ -111,7 +111,7 @@ function App() {
 
   const handleDeleteConfirm = () => {
     setIsLoading(true);
-    const token = localStorage.getItem("jwt");
+    const token = localStorage.getItem("JWT_TOKEN");
     const updatedItems = clothingItems.filter(
       (item) => item._id !== itemToDelete._id
     );
@@ -130,7 +130,7 @@ function App() {
   };
 
   const handleItemLike = ({ id, isLiked }) => {
-    const token = localStorage.getItem("jwt");
+    const token = localStorage.getItem("JWT_TOKEN");
 
     if (!isLiked) {
       likeItem(id, token)
@@ -163,7 +163,7 @@ function App() {
       .then((data) => {
         setIsLoggedIn(true);
 
-        localStorage.setItem("jwt", data.token);
+        localStorage.setItem("JWT_TOKEN", data.token);
         closeActiveModal();
 
         return auth.checkToken(data.token);
@@ -195,7 +195,7 @@ function App() {
   };
 
   const handleEditProfile = (data) => {
-    const token = localStorage.getItem("jwt");
+    const token = localStorage.getItem("JWT_TOKEN");
 
     auth
       .editProfile(data, token)
@@ -208,7 +208,7 @@ function App() {
   };
 
   const handleLogOut = () => {
-    localStorage.removeItem("jwt");
+    localStorage.removeItem("JWT_TOKEN");
     navigate("/");
     setIsLoggedIn(false);
   };
@@ -227,7 +227,7 @@ function App() {
       })
       .catch(console.error);
 
-    const token = localStorage.getItem("jwt");
+    const token = localStorage.getItem("JWT_TOKEN");
 
     if (!token) {
       console.log("token not found, user is not logged in.");
