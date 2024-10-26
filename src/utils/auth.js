@@ -1,4 +1,5 @@
-import { baseUrl, request } from "./itemApi";
+import { baseUrl } from "./constants";
+import { request } from "./itemApi";
 
 export const register = (name, password, email, avatar) => {
   return request(`${baseUrl}/signup`, {

@@ -1,4 +1,4 @@
-export const baseUrl = "http://localhost:3001";
+import { baseUrl } from "./constants";
 
 export function request(url, options) {
   return fetch(url, options).then(handleServerResponse);
@@ -43,8 +43,10 @@ export function removeItem(itemId, token) {
 }
 
 // PUT LIKE
-export function likeItem(id, token) {
-  return fetch(`${baseUrl}/items/${id}/likes`, {
+export function likeItem(itemId, token) {
+  console.log("Requesting like on item:", itemId, "with token:", token);
+
+  return fetch(`${baseUrl}/items/${itemId}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -53,12 +55,16 @@ export function likeItem(id, token) {
     body: JSON.stringify({ token }),
   })
     .then(handleServerResponse)
-    .then((res) => res.data);
+    .then((res) => res.data)
+    .catch((err) => {
+      console.error("Error in likeItem:", err);
+      throw err;
+    });
 }
 
 // DELETE LIKE
-export function unlikeItem(id, token) {
-  return fetch(`${baseUrl}/items/${id}/likes`, {
+export function unlikeItem(itemId, token) {
+  return fetch(`${baseUrl}/items/${itemId}/likes`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
