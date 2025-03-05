@@ -31,51 +31,47 @@ The idea of the application is pretty simple - we make a call to an API, which t
 
 -Desktop Previews-
 
-![Desktop](/se_project_react/src/assets/screenshots/full_screen_signed_out_homepage.png)
+![Desktop](./src/assets/screenshots/full_screen_signed_out_homepage.png)
 
-![Desktop](/se_project_react/src/assets/screenshots/full_screen_signed_in_homepage.png)
+![Desktop](./src/assets/screenshots/full_screen_signed_in_homepage.png)
 
-![Desktop](/se_project_react/src/assets/screenshots/full_screen_item_modal.png)
+![Desktop](./src/assets/screenshots/full_screen_item_modal.png)
 
-![Desktop](/se_project_react/src/assets/screenshots/full_screen_delete_modal.png)
+![Desktop](./src/assets/screenshots/full_screen_delete_modal.png)
 
-![Desktop](/se_project_react/src/assets/screenshots/full_screen_add_modal.png)
+![Desktop](./src/assets/screenshots/full_screen_add_modal.png)
 
-![Desktop](/se_project_react/src/assets/screenshots/full_screen_register_modal.png)
+![Desktop](./src/assets/screenshots/full_screen_register_modal.png)
 
-![Desktop](/se_project_react/src/assets/screenshots/full_screen_login_modal.png)
+![Desktop](./src/assets/screenshots/full_screen_login_modal.png)
 
-![Desktop](/se_project_react/src/assets/screenshots/full_screen_profile.png)
+![Desktop](./src/assets/screenshots/full_screen_profile.png)
 
-![Desktop](/se_project_react/src/assets/screenshots/full_screen_edit_modal.png)
+![Desktop](./src/assets/screenshots/full_screen_edit_modal.png)
 
 -Tablet Previews-
 
-![Tablet](/se_project_react/src/assets/screenshots/tablet_signed_in_homepage.png)
+![Tablet](./src/assets/screenshots/tablet_signed_in_homepage.png)
 
-![Tablet](/se_project_react/src/assets/screenshots/tablet_profile.png)
+![Tablet](./src/assets/screenshots/tablet_profile.png)
 
 -Mobile Views-
 
-![Mobile](/se_project_react/src/assets/screenshots/mobile_signed_out_homepage_mobile_header.png)
+![Mobile](./src/assets/screenshots/mobile_signed_out_homepage_mobile_header.png)
 
-![Mobile](/se_project_react/src/assets/screenshots/mobile_signed_in_homepage_mobile_header.png)
+![Mobile](./src/assets/screenshots/mobile_signed_in_homepage_mobile_header.png)
 
-![Mobile](/se_project_react/src/assets/screenshots/mobile_profile_mobile_header.png)
+![Mobile](./src/assets/screenshots/mobile_profile_mobile_header.png)
 
-![Mobile](/se_project_react/src/assets/screenshots/mobile_signed_in_homepage.png)
+![Mobile](./src/assets/screenshots/mobile_signed_in_homepage.png)
 
-![Mobile](/se_project_react/src/assets/screenshots/mobile_profile.png)
+![Mobile](./src/assets/screenshots/mobile_profile.png)
 
-![Mobile](/se_project_react/src/assets/screenshots/mobile_add_modal.png)
+![Mobile](./src/assets/screenshots/mobile_add_modal.png)
 
-![Mobile](/se_project_react/src/assets/screenshots/mobile_register_modal.png)
+![Mobile](./src/assets/screenshots/mobile_register_modal.png)
 
-![Mobile](/se_project_react/src/assets/screenshots/mobile_login_modal.png)
-
-**Video Overview**
-
-- Coming Soon!
+![Mobile](./src/assets/screenshots/mobile_login_modal.png)
 
 **Future Updates**
 

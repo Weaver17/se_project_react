@@ -162,6 +162,7 @@ function App() {
       .authorize(email, password)
       .then((data) => {
         setIsLoggedIn(true);
+        console.log(data);
 
         localStorage.setItem("JWT_TOKEN", data.token);
         closeActiveModal();
